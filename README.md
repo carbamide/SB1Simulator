@@ -16,7 +16,8 @@ The SB1 Simulator provides direct access to the WebInspector.  This is done by a
 CMD+O - Open File  
 CMD+R - Refresh File
 
-The best way I've found to test if you're in the simulator or the actual device is thus -
+## Caveats
+There are situations where you might want to know when you're in the simulator, such as when attempting to call ``asl.scanner``. The best way I've found to test if you're in the simulator or the actual device is thus -
 
 ```
 if (navigator.platform == "MacIntel") {
