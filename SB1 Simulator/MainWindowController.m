@@ -35,9 +35,7 @@
 {
     [super windowDidLoad];
     
-    [self setWebInspector:[[WebInspector alloc] initWithWebView:[self mainWebView]]];
-    [[self webInspector] detach:[self mainWebView]];
-    [[self webInspector] showConsole:[self mainWebView]];
+    [[self mainWebView] setFrameLoadDelegate:self];
 }
 
 -(void)openURL:(NSURL *)url
@@ -48,6 +46,16 @@
 -(void)refreshWebView
 {
     [[[self mainWebView] mainFrame] reloadFromOrigin];
+}
+
+-(void)webView:(WebView *)sender didStartProvisionalLoadForFrame:(WebFrame *)frame
+{
+    if (![self webInspector]) {
+        [self setWebInspector:[[WebInspector alloc] initWithWebView:[self mainWebView]]];
+        
+        [[self webInspector] detach:[self mainWebView]];
+        [[self webInspector] showConsole:[self mainWebView]];
+    }
 }
 
 @end
