@@ -8,3 +8,9 @@ The SB1 Simulator is locked at the screen size of an actual SB1.
 
 CMD+O - Open File
 CMD+R - Refresh File
+
+The best way I've found to test if you're in the simulator or the actual device is thus -
+
+    if (navigator.platform == "MacIntel") {
+          alert("Scanning will not function in the simulator.");
+              }
