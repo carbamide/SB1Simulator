@@ -1,0 +1,8 @@
+According to Motorola -- "The affordable, wearable mobile device designed for every retail associate."
+
+This is all fine and well, but they don't ship an emulator / simulator for the device.  This is irritating.
+
+Enter SB1 Simulator.  It's simply a WebView that opens a WebInspector (Private class - not App Store safe).  This WebView is layer backed to simulate the SB1's e-ink display.
+
+CMD+O - Open File
+CMD+R - Refresh File
