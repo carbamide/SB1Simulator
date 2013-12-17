@@ -22,6 +22,9 @@
 
 @implementation MainWindowController
 
+#pragma mark - 
+#pragma mark Window Lifecycle
+
 - (id)initWithWindow:(NSWindow *)window
 {
     self = [super initWithWindow:window];
@@ -38,6 +41,9 @@
     [[self mainWebView] setFrameLoadDelegate:self];
 }
 
+#pragma mark -
+#pragma mark Methods
+
 -(void)openURL:(NSURL *)url
 {    
     [[[self mainWebView] mainFrame] loadRequest:[NSURLRequest requestWithURL:url]];
@@ -47,6 +53,9 @@
 {
     [[[self mainWebView] mainFrame] reloadFromOrigin];
 }
+
+#pragma mark -
+#pragma mark - WebFrameLoadDelegate
 
 -(void)webView:(WebView *)sender didStartProvisionalLoadForFrame:(WebFrame *)frame
 {
